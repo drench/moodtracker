@@ -1,1 +1,1 @@
-json.partial! @message, partial:'message', as: :message
+json.partial! @message, partial: 'message', as: :message

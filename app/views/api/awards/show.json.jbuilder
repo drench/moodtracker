@@ -1,0 +1,1 @@
+json.partial! @award, partial: 'award', as: :award

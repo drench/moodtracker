@@ -1,1 +1,1 @@
-json.partial! @journal, partial:'journal', as: :journal
+json.partial! @journal, partial: 'journal', as: :journal

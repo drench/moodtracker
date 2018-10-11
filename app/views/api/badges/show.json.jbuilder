@@ -1,0 +1,1 @@
+json.partial! @badge, partial: 'badge', as: :badge

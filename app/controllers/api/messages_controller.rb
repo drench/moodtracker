@@ -8,12 +8,16 @@ before_action :authenticate_user
 
   def create
     @message = Message.new(
+                          user_id: current_user.id,
                           user_id: params[:user_id],
                           thread_id: params[:thread_id],
                           content: params[:content],
                           )
-    @message.save
-    render 'show.json.jbuilder'
+    if @message.save
+      render json: {message: 'Message entry successfully'}, status: :created
+    else
+      render json: {errors: @message.errors.full_messages}, status: :bad_request
+    end
   end
 
   def show

@@ -1,1 +1,1 @@
-json.partial! @mood_tracker, partial:'mood_tracker', as: :mood_tracker
+json.partial! @mood_tracker, partial: 'mood_tracker', as: :mood_tracker

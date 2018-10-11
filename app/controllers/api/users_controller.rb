@@ -25,4 +25,12 @@ class Api::UsersController < ApplicationController
       render json: {errors: user.errors.full_messages}, status: :bad_request
     end
   end
+
+
+  helper_method :current_user
+  def authenticate_user
+    unless current_user
+    render json: {}, status: :unauthorized
+    end
+  end 
 end

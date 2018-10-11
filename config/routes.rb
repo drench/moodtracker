@@ -19,5 +19,11 @@ Rails.application.routes.draw do
     post "mood_trackers/" => 'mood_trackers#create'
     get "/mood_trackers/:id" => 'mood_trackers#show'
     patch "/mood_trackers/:id" => 'mood_trackers#update'
+
+    get "/badges" => 'badges#index'
+    get "/badges/:id" => 'badges#show'
+
+    get "/awards" => 'awards#index'
+    get "/awards/:id" => 'awards#show'
   end  
 end
