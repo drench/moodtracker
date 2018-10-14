@@ -1,5 +1,4 @@
 class Api::MoodTrackersController < ApplicationController
-before_action :authenticate_user, except: [:index, :show]
 
   def index
     @mood_tracker = MoodTracker.all
@@ -26,6 +25,7 @@ before_action :authenticate_user, except: [:index, :show]
 
   def update
     @mood_tracker = MoodTracker.find(params[:created_at])
+    
     @mood_tracker.emotion = params[:emotion] || @mood_tracker.emotion
     @mood_tracker.proud_message = params[:proud_message] || @mood_tracker.proud_message
     @mood_tracker.updated_at = params[:updated_at] || @mood_tracker.updated_at

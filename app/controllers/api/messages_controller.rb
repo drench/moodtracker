@@ -1,15 +1,13 @@
 class Api::MessagesController < ApplicationController
-before_action :authenticate_user
 
   def index
-    @message = Message.all
+    @messages = Thread.find(params[:thread_id]).messages
     render 'index.json.jbuilder'  
   end
 
   def create
     @message = Message.new(
                           user_id: current_user.id,
-                          user_id: params[:user_id],
                           thread_id: params[:thread_id],
                           content: params[:content],
                           )

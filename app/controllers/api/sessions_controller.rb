@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
   
   def create
-    user = User.find_by(family_id: params[:family_id])
+    user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       jwt = JWT.encode(
                       {

@@ -17,4 +17,6 @@ protect_from_forgery with: :null_session
       end
     end
   end
+  helper_method :current_user
+
 end

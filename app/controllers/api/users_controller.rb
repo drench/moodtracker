@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  
   def create
     if params[:new_family] == "true"
       family = Family.create
@@ -28,9 +29,11 @@ class Api::UsersController < ApplicationController
 
 
   helper_method :current_user
+
   def authenticate_user
     unless current_user
     render json: {}, status: :unauthorized
     end
-  end 
+  end
+  
 end
