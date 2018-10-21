@@ -1,7 +1,8 @@
 class Api::MoodTrackersController < ApplicationController
+before_action :authenticate_user
 
   def index
-    @mood_tracker = MoodTracker.all
+    @mood_trackers = MoodTracker.all
     render 'index.json.jbuilder'  
   end
 
@@ -19,18 +20,15 @@ class Api::MoodTrackersController < ApplicationController
   end
 
   def show
-    @mood_tracker = MoodTracker.find(params[:created_at])
+    @mood_trackers.all
     render "show.json.jbuilder"
   end
 
   def update
-    @mood_tracker = MoodTracker.find(params[:created_at])
-    
+    @mood_tracker = MoodTracker.find(params[:created_at])    
     @mood_tracker.emotion = params[:emotion] || @mood_tracker.emotion
     @mood_tracker.proud_message = params[:proud_message] || @mood_tracker.proud_message
-    @mood_tracker.updated_at = params[:updated_at] || @mood_tracker.updated_at
     @mood_tracker.save
     render "show.json.jbuilder"
   end
-   
 end

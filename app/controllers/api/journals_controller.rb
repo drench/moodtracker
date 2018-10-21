@@ -1,7 +1,8 @@
 class Api::JournalsController < ApplicationController
+before_action :authenticate_user
   
   def index
-    @journal = Journal.all
+    @journals = Journal.all
     render 'index.json.jbuilder'  
   end
 

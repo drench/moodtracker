@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-
   belongs_to :family
 
   has_many :journals
@@ -11,8 +10,8 @@ class User < ApplicationRecord
   has_many :badges
   has_many :awards, through: :badges
 
-  has_many :moodtrackers
+  has_many :mood_trackers
 
   validates :name, presence: true, uniqueness: true      
-
+  validates :family_id, presence: true
 end
