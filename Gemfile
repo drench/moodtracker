@@ -53,3 +53,4 @@ gem 'http'
 gem 'jwt'
 
 gem 'figaro'
+gem 'merit'
