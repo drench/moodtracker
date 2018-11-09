@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  has_merit
   belongs_to :family
 
   has_many :journals

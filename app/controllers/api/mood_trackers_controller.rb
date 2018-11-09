@@ -1,14 +1,15 @@
 class Api::MoodTrackersController < ApplicationController
+before_action :authenticate_family
 before_action :authenticate_user, except: [:index, :show]
 
   def index
     @mood_trackers = MoodTracker.all
-    render 'index.json.jbuilder'  
+    render 'index.json.jbuilder' 
   end
 
   def create
     @mood_tracker = MoodTracker.new(
-                                    user_id: current_user.id,
+                                    name: current_user.id,
                                     emotion: params[:emotion],
                                     proud_message: params[:proud_message]
                                     )

@@ -10,7 +10,7 @@ before_action :authenticate_user
     @journal = Journal.new(
                           user_id: current_user.id,
                           title: params[:title],
-                          content: params[:content],
+                          content: params[:content]
                           )
     if @journal.save
       render json: {message: 'Journal entry successfully'}, status: :created

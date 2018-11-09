@@ -9,6 +9,7 @@ before_action :authenticate_user
   def create
     @message = Message.new(
                           user_id: current_user.id,
+                          user_name: recipient_name,
                           thread_id: params[:thread_id],
                           content: params[:content],
                           )
