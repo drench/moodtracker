@@ -1,5 +1,4 @@
 class Api::MoodTrackersController < ApplicationController
-before_action :authenticate_family
 before_action :authenticate_user, except: [:index, :show]
 
   def index
