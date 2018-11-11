@@ -1,8 +1,8 @@
 class MoodTracker < ApplicationRecord
   belongs_to :user
-  belongs_to :family
+  has_one :family, through: :user
   
-  enum emotion: {fear: 0, anger: 1, sad: 2, happy: 3, shame: 4, meh: 5,surprise: 6, pity: 7, envy: 8, love: 9 }, _suffix: true
+  enum emotion: {angry: 0, sad: 1, meh: 2, happy: 3}, _suffix: true
   
   validates :emotion, presence: true
   

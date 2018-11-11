@@ -8,7 +8,7 @@ before_action :authenticate_user, except: [:index, :show]
 
   def create
     @mood_tracker = MoodTracker.new(
-                                    name: current_user.id,
+                                    user_id: current_user.id,
                                     emotion: params[:emotion],
                                     proud_message: params[:proud_message]
                                     )
