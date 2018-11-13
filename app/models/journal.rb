@@ -3,4 +3,9 @@ class Journal < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+
+  def friendly_time
+    Journal.created_at.strftime("%FT%T")
+  end  
+
 end

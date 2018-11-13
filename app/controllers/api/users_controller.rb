@@ -1,5 +1,4 @@
-class Api::UsersController < ApplicationController
-  
+class Api::UsersController < ApplicationController 
   def create
     if params[:new_family] == "true"
       family = Family.create
