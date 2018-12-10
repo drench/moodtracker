@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:11-alpine
+    volumes:
+      - ./persisted-data/db:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: rails server
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USERNAME=postgres
+    ports:
+      - target: 3000
+        published: 3000
+        protocol: tcp
+        mode: host
+    volumes:
+      - .:/code
