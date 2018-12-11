@@ -21,11 +21,15 @@ before_action :authenticate_user
   end
 
   def show
+    # [@drench] I'd go with params[:id] here if possible since we can't count
+    # on created_at being unique.
     @journal = Journal.find(params[:created_at])
     render 'show.json.jbuilder'
   end
 
   def update
+    # [@drench] Should a user be allowed to update a Journal belonging to another user?
+    # Would you be up for adding some tests if we have time?
     @journal = Journal.find(params[:created_at])
 
     @journal.title = params[:title] || @journal.title
@@ -37,6 +41,8 @@ before_action :authenticate_user
   end
    
   def destroy
+    # [@drench] Similar question: should a user be allowed to destroy a Journal
+    # belonging to another user?
     @journal = journal.find(params[:created_at])
     @journal.destroy
     render json: {message: "Journal entry has been removed"}

@@ -14,4 +14,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true      
   validates :family_id, presence: true
+  # [@drench] Would it be OK for users to have the same name if they were
+  # in different families?
 end
