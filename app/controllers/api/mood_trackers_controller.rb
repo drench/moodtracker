@@ -13,7 +13,7 @@ before_action :authenticate_user, except: [:index, :show]
                                     proud_message: params[:proud_message]
                                     )
     if @mood_tracker.save
-      render json: {message: 'Mood entered successfully'}, status: :created
+      render "show.json.jbuilder"
     else
       render json: {errors: @mood_tracker.errors.full_messages}, status: :bad_request
     end
