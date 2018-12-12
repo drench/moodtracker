@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     post "/users" => 'users#create' 
     post '/sessions' => 'sessions#create'
 
-    get "/journals" => 'journals#index'
-    post "journals/" => 'journals#create'
-    get "/journals/:id" => 'journals#show'
-    patch "/journals/:id" => 'journals#update'
-    delete "/journals/:id" => 'journals#destroy'
+    # get "/journals" => 'journals#index'
+    # post "journals/" => 'journals#create'
+    # get "/journals/:id" => 'journals#show'
+    # patch "/journals/:id" => 'journals#update'
+    # delete "/journals/:id" => 'journals#destroy'
 
     # get "/messages" => 'messages#index'
     # post "messages/" => 'messages#create'
