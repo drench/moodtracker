@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController 
+before_action :authenticate_user
 
   def index
     @users = User.all
@@ -45,7 +46,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @events.all
+    @users.all
   end
 
   def update
